@@ -16,10 +16,9 @@ services:
     networks:
       - employee-mysql
     environment:
-       MYSQL_PASSWORD='root'
-       MYSQL_ALLOW_EMPTY_PASSWORD='yes'
-       MYSQL_DATABASE='devv'
-       MYSQL_USER='root'
+    "MYSQL_ROOT_PASSWORD": root
+    "MYSQL_DATABASE": devv
+    "MYSQL_USER": root
 
 networks:
   employee-mysql:
