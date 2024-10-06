@@ -17,7 +17,7 @@ services:
       - employee-mysql
     environment:
       - MYSQL_PASSWORD=root
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=dev 
       - MYSQL_USER=root
 
