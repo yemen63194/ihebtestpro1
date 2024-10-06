@@ -17,5 +17,5 @@ services:
       - MYSQL_DATABASE=devv 
       - MYSQL_USER=root
       - DATABASE_DRIVER=com.mysql.cj.jdbc.Driver
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
