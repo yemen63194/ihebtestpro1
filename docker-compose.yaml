@@ -12,7 +12,7 @@ services:
     container_name: angular-ui
 
     ports:
-      - "4200:4200"
+      - "8081:80"
     depends_on:
       - springboot
  
