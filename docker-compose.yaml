@@ -1,7 +1,7 @@
 version: "3"
 services:
   springboot:
-    image: myapp0:latest
+    image: myapp1:latest
     ports:
       - "8089:8080"
    
