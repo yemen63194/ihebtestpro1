@@ -8,7 +8,7 @@ services:
     depends_on:
       - mysqldb
    frontend:
-    image: 
+    image: 2bd5ca7dcc09
     container_name: angular-ui
 
      ports:
