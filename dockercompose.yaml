@@ -8,18 +8,18 @@ services:
       - employee-mysql
     depends_on:
       - mysqldb
-
+ 
   mysqldb:
     image: mysql:8
     ports:
-      - "3306:3306"
+      - 3306:3306
     networks:
       - employee-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dev
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      - MYSQL_PASSWORD:root
+      - MYSQL_ALLOW_EMPTY_PASSWORD:yes
+      - MYSQL_DATABASE:devv 
+      - MYSQL_USER:root
 
 networks:
   employee-mysql:
