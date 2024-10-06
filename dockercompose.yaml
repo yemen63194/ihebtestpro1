@@ -16,7 +16,6 @@ services:
     networks:
       - employee-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD:
       - MYSQL_DATABASE: dev 
       - MYSQL_USER: root
 
