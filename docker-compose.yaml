@@ -7,6 +7,14 @@ services:
    
     depends_on:
       - mysqldb
+   frontend:
+    image: 
+    container_name: angular-ui
+
+     ports:
+        - "4200:80"
+     depends_on:
+         - springboot
  
   mysqldb:
     image: mysql:8
