@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                    // Cloner le dépôt Git avec les informations d'identification
+                    git url: 'https://github.com/ihebiss/ihebtestpro1.git', branch: 'main'
+                }
+            }
+        }
+
+        stage('Build Project') {
+            steps {
+                script {
+                    // Créer le livrable sans lancer les tests unitaires
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Build Docker Image Backend') {
+            steps {
+                sh 'docker build -t iheb1999/ihebi .'
+            }
+        }
+
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                sh 'docker login -u iheb1999 -p houdaakrimi123'
+                sh 'docker push iheb1999/ihebi'
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()  // Nettoyer l'espace de travail après chaque étape
+        }
+
+        failure {
+            mail to: 'mohamediheb.issaoui@esprit.tn',
+                 subject: "Échec du pipeline Jenkins - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Le pipeline Jenkins pour le projet a échoué lors de l'étape de création du livrable.\n\nVoir les détails ici : ${env.BUILD_URL}"
+        }
+    }
+}
