@@ -1,21 +1,13 @@
 version: "3"
 services:
   springboot:
-    image: myapp1:latest
+    image: iheb1999/ihebi:latest
     ports:
-      - "8089:8080"
+      - "8087:8080"
    
     depends_on:
       - mysqldb
-  frontend:
-    image: angular:v44
-    container_name: angular-ui
 
-    ports:
-      - "8081:80"
-    depends_on:
-      - springboot
- 
   mysqldb:
     image: mysql:8
     ports:
